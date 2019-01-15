@@ -1,0 +1,28 @@
+Resources:
+  CoffeeBotDevRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Effect: "Allow"
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      RoleName: "CoffeeBotDev-Role"
+  CloudWatchPutMetricDataPolicy:
+    DependsOn: "CoffeeBotDevRole"
+    Type: "AWS::IAM::Policy"
+    Properties: 
+      PolicyName: "CloudWatchPutMetricData"
+      Roles: 
+        -
+          !Ref "CoffeeBotDevRole"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Effect: "Allow"
+            Action: "cloudwatch:PutMetricData"
+            Resource: "*"
