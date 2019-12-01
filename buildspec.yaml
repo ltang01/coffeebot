@@ -6,11 +6,11 @@ phases:
       python: 3.8
   build:
     commands:
-      echo zipping lambda_function.py
-      zip coffeebot-main.zip main/lambda_function.py
+      - echo zipping lambda_function.py
+      - zip coffeebot-main.zip main/lambda_function.py
     post_build:
       commands:
-        echo build completed on 'date'
+        - echo build completed on 'date'
 artifacts:
   files:
-    coffeebot-main.zip
+    - coffeebot-main.zip
