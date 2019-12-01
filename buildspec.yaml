@@ -11,6 +11,7 @@ phases:
     post_build:
       commands:
         - echo build completed on 'date'
+        - ls
 artifacts:
   files:
     - coffeebot-main.zip
