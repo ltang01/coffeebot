@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+  build:
+    commands:
+      echo zipping lambda_function.py
+      zip coffeebot-main.zip main/lambda_function.py
+    post_build:
+      commands:
+        echo build completed on 'date'
+artifacts:
+  files:
+    coffeebot-main.zip
